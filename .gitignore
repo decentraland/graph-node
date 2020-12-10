@@ -21,3 +21,5 @@
 /tests/integration-tests/**/yarn.lock
 # Built solidity contracts.
 /tests/integration-tests/**/*.bin
+
+node_modules
