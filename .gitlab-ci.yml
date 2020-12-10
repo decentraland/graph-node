@@ -1,0 +1,18 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+deploy-infra:
+  stage: deploy
+  image: decentraland/ci-node:latest
+  only:
+    - master
+    - staging
+    - release
+  script:
+    - dcl-lock-sync
+    - cd .ci && npm install && cd node_modules/dcl-ops-lib && dcl-up services-graph-node
+    - cd ..
+    - dcl-sync-release
+    - dcl-announce-docker-build
