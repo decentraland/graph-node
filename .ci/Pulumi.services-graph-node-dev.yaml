@@ -2,7 +2,7 @@ encryptionsalt: v1:qZwxk/X8DIA=:v1:3NC6kXAJXEI09tUX:fXaiJ2nDDxmgUkRAwkiCHf2fWIgN
 config:
   graph-node:ethereum:
     secure: v1:DlMwX6yt2kFtGqcw:6DOoFqjq0R8jBoES7qi+TJDugkERLFw3blawVXVYRwQgJZDMT5vQEmtQFnnRgsIQQbnJxZy17g+u/Hql1THrQBD27Rv8cdoTFgtQ36U0jo3zwIjlMPqmZzamwCGS
-  graph-node:postgres_db:
-    secure: v1:trbB5P5o4ahpjDFD:WVeBemrtJfDEJZzPQuBtSkqAzjeWt7xFm7ArlbTIwyI=
   graph-node:postgres_host:
     secure: v1:xIm3cXBpKJm4fQwm:UujKijW1EW7OGQ0U7bKy8Qo+dZLbY82RJTgBl8JeFecEO6fJ2xLaxD1PzcckV9VohI+Z+OWGCX+KcuLZV37GEFKvzdE8ZyA=
+  service-graph-node:postgres_pass:
+    secure: v1:KE5QcK1shN1CJ3qg:zPw9RNDgwnc54mameTv6+AiO8cd/FiTnT5uZ6jM79eQ=
