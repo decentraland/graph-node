@@ -16,7 +16,7 @@ export = async function main() {
     [
       { name: 'postgres_host', value: getDbHost() },
       { name: 'postgres_port', value: getDbPort() },
-      { name: 'postgres_user', value: 'postgres' },
+      { name: 'postgres_user', value: 'graph-node' },
       { name: 'RUST_LOG', value: 'info' },
       { name: 'postgres_pass', value: config.requireSecret('postgres_pass') },
       { name: 'postgres_db', value: 'graph-node' },
