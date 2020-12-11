@@ -6,10 +6,10 @@ import { envTLD } from 'dcl-ops-lib/domain'
 
 export = async function main() {
   const config = new pulumi.Config()
-  const hostname = 'graph-node-logs.decentraland.' + envTLD
+  const hostname = 'graph-logs.decentraland.' + envTLD
 
   const graphNode = await createFargateTask(
-    `graph-node`,
+    'graph-node',
     'graphprotocol/graph-node:latest',
     8030,
     [
@@ -41,8 +41,8 @@ export = async function main() {
         createCloudflareProxiedSubdomain: true
       },
       extraALBMappings: [
-        { domain: 'graph-node.decentraland.' + envTLD, dockerListeningPort: 8020 },
-        { domain: 'graph-node-playground.decentraland.' + envTLD, dockerListeningPort: 8000 }
+        { domain: 'graph.decentraland.' + envTLD, dockerListeningPort: 8020 },
+        { domain: 'graph-play.decentraland.' + envTLD, dockerListeningPort: 8000 }
       ]
     }
   )
