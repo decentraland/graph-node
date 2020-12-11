@@ -16,7 +16,6 @@ export = async function main() {
     healthyThreshold: 3,
     port: '8030'
   }
-
   const graphNode = await createFargateTask(
     'graph-node',
     'graphprotocol/graph-node:latest',
@@ -37,21 +36,14 @@ export = async function main() {
     hostname,
     {
       // @ts-ignore
-      healthCheck: {
-        path: '/',
-        interval: 60,
-        timeout: 10,
-        unhealthyThreshold: 10,
-        healthyThreshold: 3,
-        port: '8030'
-      },
+      healthCheck,
       version: '1',
       extraExposedServiceOptions: {
         createCloudflareProxiedSubdomain: true
       },
       extraALBMappings: [
-        { domain: 'graph.decentraland.' + envTLD, dockerListeningPort: 8020, healthCheck: { ...healthCheck, path: 'graph-logs.decentraland.' + envTLD } },
-        { domain: 'graph-play.decentraland.' + envTLD, dockerListeningPort: 8000 }
+        { domain: 'graph.decentraland.' + envTLD, dockerListeningPort: 8020, healthCheck: { ...healthCheck, port: '8020' } },
+        { domain: 'graph-play.decentraland.' + envTLD, dockerListeningPort: 8000, healthCheck: { ...healthCheck, port: '8000' } }
       ],
       securityGroups: [await acceptDbSecurityGroupId()]
     }
