@@ -36,7 +36,6 @@ export = async function main() {
         port: '8030'
       },
       version: '1',
-      memoryReservation: 1024,
       extraExposedServiceOptions: {
         createCloudflareProxiedSubdomain: true
       },
