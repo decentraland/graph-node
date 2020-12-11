@@ -50,7 +50,7 @@ export = async function main() {
         createCloudflareProxiedSubdomain: true
       },
       extraALBMappings: [
-        { domain: 'graph.decentraland.' + envTLD, dockerListeningPort: 8020 },
+        { domain: 'graph.decentraland.' + envTLD, dockerListeningPort: 8020, healthCheck: { ...healthCheck, path: 'graph-logs.decentraland.' + envTLD } },
         { domain: 'graph-play.decentraland.' + envTLD, dockerListeningPort: 8000 }
       ],
       securityGroups: [await acceptDbSecurityGroupId()]
