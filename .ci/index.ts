@@ -1,19 +1,20 @@
 import * as pulumi from '@pulumi/pulumi'
 
 import { createFargateTask } from 'dcl-ops-lib/createFargateTask'
-import { env, envTLD } from 'dcl-ops-lib/domain'
+import { getDbHost, getDbPort } from 'dcl-ops-lib/supra'
+import { envTLD } from 'dcl-ops-lib/domain'
 
 export = async function main() {
   const config = new pulumi.Config()
-  const hostname = 'graph-node.decentraland.' + envTLD
+  const hostname = 'graph-node-logs.decentraland.' + envTLD
 
   const graphNode = await createFargateTask(
-    `graph-node-logs`,
+    `graph-node`,
     'graphprotocol/graph-node:latest',
     8030,
     [
-      { name: 'postgres_host', value: config.requireSecret('postgres_host') },
-      { name: 'postgres_port', value: '5432' },
+      { name: 'postgres_host', value: getDbHost() },
+      { name: 'postgres_port', value: getDbPort() },
       { name: 'postgres_user', value: 'postgres' },
       { name: 'postgres_pass', value: config.requireSecret('postgres_pass') },
       { name: 'postgres_db', value: 'graph-node' },
@@ -40,8 +41,8 @@ export = async function main() {
         createCloudflareProxiedSubdomain: true
       },
       extraALBMappings: [
-        { domain: 'graph-node', dockerListeningPort: 8020 },
-        { domain: 'graph-playground', dockerListeningPort: 8000 }
+        { domain: 'graph-node.decentraland.' + envTLD, dockerListeningPort: 8020 },
+        { domain: 'graph-node-playground.decentraland.' + envTLD, dockerListeningPort: 8000 }
       ]
     }
   )
