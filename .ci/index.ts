@@ -3,6 +3,7 @@ import * as pulumi from '@pulumi/pulumi'
 import { createFargateTask } from 'dcl-ops-lib/createFargateTask'
 import { getDbHost, getDbPort } from 'dcl-ops-lib/supra'
 import { envTLD } from 'dcl-ops-lib/domain'
+import { acceptDbSecurityGroupId } from 'dcl-ops-lib/acceptDb'
 
 export = async function main() {
   const config = new pulumi.Config()
@@ -43,7 +44,8 @@ export = async function main() {
       extraALBMappings: [
         { domain: 'graph.decentraland.' + envTLD, dockerListeningPort: 8020 },
         { domain: 'graph-play.decentraland.' + envTLD, dockerListeningPort: 8000 }
-      ]
+      ],
+      securityGroups: [await acceptDbSecurityGroupId()]
     }
   )
 
