@@ -25,6 +25,15 @@ export = async function main() {
     ],
     hostname,
     {
+      // @ts-ignore
+      healthCheck: {
+        path: '/',
+        interval: 60,
+        timeout: 10,
+        unhealthyThreshold: 10,
+        healthyThreshold: 3,
+        port: '8030'
+      },
       version: '1',
       memoryReservation: 1024,
       extraExposedServiceOptions: {
