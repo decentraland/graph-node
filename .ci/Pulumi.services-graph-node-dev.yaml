@@ -1,7 +1,7 @@
 encryptionsalt: v1:qZwxk/X8DIA=:v1:3NC6kXAJXEI09tUX:fXaiJ2nDDxmgUkRAwkiCHf2fWIgNLw==
 config:
   service-graph-node:ethereum:
-    secure: v1:/swRNHKA5Z97iTnv:l/nHc7RplwwBRt9QizPl0WlXFr2zRlvWe8aoVnsqVotETMi9duowRIHb4TGvJfnawvlNuX2qCOHOtObAKCztc3/mv4zkqTgGonzObffE2gfo9Q+XHJMB208DNAuo
+    secure: v1:bbyHLpOw5rC3l5Cp:H3FBUu9grU3NKZl23a3NISkhJ5c/4IrFQkHEGXm6uwIAQo7/bLS0DTGKbRKdt7XTQvkvAduo9SKCkRnZ6PaIDAblDDlrMrBmgFvF6y51c8J7/V0wfNI5fwMVE6WQtzxHXNh+3g==
   service-graph-node:postgres_host:
     secure: v1:rsFKpThvuZw3Y52u:9+jgciaGiwvaqrlyCKEbpNm3BWsOGjdxte2PUySYnWCxXvatFR0/1WXUi5vc02R5wyHaMYaQ3TeAJeewxGmvb9ipSvzQBqw=
   service-graph-node:postgres_pass:
