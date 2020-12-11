@@ -10,7 +10,7 @@ export = async function main() {
   const graphNode = await createFargateTask(
     `graph-node`,
     'graphprotocol/graph-node:latest',
-    8020,
+    8030,
     [
       { name: 'postgres_host', value: config.requireSecret('postgres_host') },
       { name: 'postgres_port', value: '5432' },
