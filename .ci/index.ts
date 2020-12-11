@@ -1,7 +1,7 @@
 import * as pulumi from '@pulumi/pulumi'
 
 import { createFargateTask } from 'dcl-ops-lib/createFargateTask'
-import { getDbHost, getDbPort } from 'dcl-ops-lib/supra'
+import { getDbHost } from 'dcl-ops-lib/supra'
 import { envTLD } from 'dcl-ops-lib/domain'
 import { acceptDbSecurityGroupId } from 'dcl-ops-lib/acceptDb'
 
@@ -15,7 +15,7 @@ export = async function main() {
     8030,
     [
       { name: 'postgres_host', value: getDbHost() },
-      { name: 'postgres_port', value: getDbPort() },
+      { name: 'postgres_port', value: '5432' },
       { name: 'postgres_user', value: 'graph-node' },
       { name: 'RUST_LOG', value: 'info' },
       { name: 'postgres_pass', value: config.requireSecret('postgres_pass') },
