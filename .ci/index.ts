@@ -8,6 +8,14 @@ import { acceptDbSecurityGroupId } from 'dcl-ops-lib/acceptDb'
 export = async function main() {
   const config = new pulumi.Config()
   const hostname = 'graph-logs.decentraland.' + envTLD
+  const healthCheck = {
+    path: '/',
+    interval: 60,
+    timeout: 10,
+    unhealthyThreshold: 10,
+    healthyThreshold: 3,
+    port: '8030'
+  }
 
   const graphNode = await createFargateTask(
     'graph-node',
