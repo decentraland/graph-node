@@ -5,4 +5,4 @@ config:
   service-graph-node:postgres_host:
     secure: v1:rsFKpThvuZw3Y52u:9+jgciaGiwvaqrlyCKEbpNm3BWsOGjdxte2PUySYnWCxXvatFR0/1WXUi5vc02R5wyHaMYaQ3TeAJeewxGmvb9ipSvzQBqw=
   service-graph-node:postgres_pass:
-    secure: v1:KE5QcK1shN1CJ3qg:zPw9RNDgwnc54mameTv6+AiO8cd/FiTnT5uZ6jM79eQ=
+    secure: v1:V5/fQBUU3W05szo5:p7bvSift2cGXpvOyCLO1qcVT0U5OqE41kZQnZyUNqkY=
