@@ -8,7 +8,7 @@ export = async function main() {
   const hostname = 'graph-node.decentraland.' + envTLD
 
   const graphNode = await createFargateTask(
-    `graph-node`,
+    `graph-node-logs`,
     'graphprotocol/graph-node:latest',
     8030,
     [
@@ -38,7 +38,11 @@ export = async function main() {
       memoryReservation: 1024,
       extraExposedServiceOptions: {
         createCloudflareProxiedSubdomain: true
-      }
+      },
+      extraALBMappings: [
+        { domain: 'graph-node', dockerListeningPort: 8020 },
+        { domain: 'graph-playground', dockerListeningPort: 8000 }
+      ]
     }
   )
 
